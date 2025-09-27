@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Card } from "./components/Card";
 import { Hello } from "./components/Hello";
 
-
 const CARDS = [
   { id: 0, title: 'Card A', description: 'Filho de A' },
   { id: 1, title: 'Card B', description: 'Filho de B' },
@@ -11,6 +10,7 @@ const CARDS = [
 
 const App = () => {
   const [count, setCount] = useState(0)
+  const [name, setName] = useState("")
 
   const inc = () => setCount(c => c + 1)
 
@@ -40,6 +40,13 @@ const App = () => {
 
       <Hello name="Renan Queiróz" />
 
+<form>
+  <input
+  type="text"
+  volue={name}
+  onChange={event => setName(event.target.value)}
+  />
+</form>
     </main>
   );
 }

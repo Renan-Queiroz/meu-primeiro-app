@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card } from "./components/Card";
 import { Hello } from "./components/Hello";
+import { TextField } from "./components/TextField";
 
 const CARDS = [
   { id: 0, title: 'Card A', description: 'Filho de A' },
@@ -14,8 +15,16 @@ const App = () => {
 
   const inc = () => setCount(c => c + 1)
 
+  const handleSubmit = event => {
+    event.preventDefault()
+
+    console.log({ name })
+    setName("")
+    // Enviar para API/banco de dados
+  }
+
   return (
-    <main className="min-h-dvh bg-slate-50">
+    <main className="min-h-dvh grid place-items-center bg-slate-50">
       <h1 className="text-3xl font-bold text-slate-800">
         Hello Renan Queiróz!
       </h1>
@@ -40,13 +49,21 @@ const App = () => {
 
       <Hello name="Renan Queiróz" />
 
-<form>
-  <input
-  type="text"
-  volue={name}
-  onChange={event => setName(event.target.value)}
-  />
-</form>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          label="Digite seu nome completo"
+          type="text"
+          value={name}
+          onChange={event => setName(event.target.value)}
+        />
+
+        <button
+          type="submit"
+          className="inline-bock px-4 py-2 w-full rounded-lg borger hover:bg-slate-300 focus:rijng-2 focus:ring-blue-500 cursor-pointer"
+        >
+          Enviar
+        </button>
+      </form>
     </main>
   );
 }

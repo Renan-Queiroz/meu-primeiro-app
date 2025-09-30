@@ -12,15 +12,21 @@ const CARDS = [
 const App = () => {
   const [count, setCount] = useState(0)
   const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
 
   const inc = () => setCount(c => c + 1)
 
   const handleSubmit = event => {
     event.preventDefault()
 
-    console.log({ name })
+    console.log({ name, email, password })
     setName("")
-    // Enviar para API/banco de dados
+    setEmail("")
+    setPassword("")
+
+      // Enviar para API/banco de dados
   }
 
   return (
@@ -55,6 +61,20 @@ const App = () => {
           type="text"
           value={name}
           onChange={event => setName(event.target.value)}
+        />
+
+        <TextField
+          label="Email"
+          type="text"
+          value={email}
+          onChange={event => setEmail(event.target.value)}
+        />
+
+        <TextField
+          label="Digite sua Senha"
+          type="password"
+          value={password}
+          onChange={event => setPassword(event.target.value)}
         />
 
         <button

@@ -1,7 +1,11 @@
+import { Navbar } from "../../components/Navbar"
+
 export const FeaturesPage = () => {
     return (
         <main className="w-full">
-            <h1>Página de contato</h1>
+            <Navbar />
+
+            <h1>Página de funcionalidades</h1>
         </main>
     )
 }
